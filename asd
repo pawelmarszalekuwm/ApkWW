@@ -20,3 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
+
+
+if (isset($_GET['akcja']) && $_GET['akcja'] === 'wyloguj') {
+    session_start();
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit;
+}
