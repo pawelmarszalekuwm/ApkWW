@@ -31,3 +31,20 @@ if (isset($_GET['akcja']) && $_GET['akcja'] === 'wyloguj') {
     header('Location: ../index.php');
     exit;
 }
+
+if (isset($_POST['edit'])) {
+    EdytujPodstrone($_POST['edit']);
+} elseif (isset($_POST['delete'])) {
+    UsunPodstrone($_POST['delete']);
+} elseif (isset($_POST['show_add_form'])) {
+    echo '<h2>Dodaj nową podstronę</h2>';
+    DodajNowaPodstrone();
+} elseif (isset($_POST['add_page'])) {
+    DodajNowaPodstrone();
+} elseif (isset($_POST['save_edit'])) {
+    if (isset($_POST['edit_id'])) {
+        EdytujPodstrone($_POST['edit_id']);
+    }
+} else {
+    ListaPodstron();
+}
